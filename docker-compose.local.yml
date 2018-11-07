@@ -1,0 +1,20 @@
+# docker-compose -f docker-compose.local.yml up --force-recreate --build -d
+# docker-compose -f docker-compose.local.yml down --rmi all -v --remove-orphans
+version: '3.5'
+
+services:
+  dotnet-samples:
+    image: dotnet-samples
+    build: 
+      context: .
+      dockerfile: Dockerfile      
+      args:
+        CONFIGURATION: "Release"
+    ports:
+      - 5555:80
+    environment:
+      ASPNETCORE_ENVIRONMENT: 'Development'
+    
+networks:
+  default:
+    name: ns-dotnet-samples
