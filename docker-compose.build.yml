@@ -4,10 +4,10 @@
 version: '3.5'
 
 services:
-  sistema-api-tjmt-jus-br:
-    image: ${REGISTRY}dotnet-samples:${PROJECT_VERSION}
+  tjmt.docker.dotnet.samples:
+    image: ${REGISTRY}tjmt.docker.dotnet.samples:${PROJECT_VERSION}
     build: 
       context: .
       dockerfile: Dockerfile      
       args:
-        CONFIGURATION: "Release"      
+        CONFIGURATION: "Release"

@@ -1,0 +1,8 @@
+version: '3.5'
+
+services:
+  tjmt.docker.dotnet.samples:
+    ports:
+      - 5555:80
+    environment:
+      ASPNETCORE_ENVIRONMENT: 'Development'

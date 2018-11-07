@@ -13,9 +13,9 @@ RUN mkdir /app \
 
 WORKDIR /src
 COPY . .
-RUN dotnet restore -v m
-RUN dotnet build -c ${CONFIGURATION} --no-restore -v m
-RUN dotnet publish src/TJMT.Docker.DotNet.Samples/TJMT.Docker.DotNet.Samples.csproj -c ${CONFIGURATION} -o /app --no-build                   
+RUN dotnet restore TJMT.Docker.DotNet.Samples.sln -v m
+RUN dotnet build TJMT.Docker.DotNet.Samples.sln -c ${CONFIGURATION} --no-restore -v m
+RUN dotnet publish src/TJMT.Docker.DotNet.Samples/TJMT.Docker.DotNet.Samples.csproj -c ${CONFIGURATION} -o /app                  
 
 FROM dotnetcore:runtime as final
 COPY --from=Build /app /app
