@@ -9,10 +9,7 @@ services:
       CONNECTION_STRING: 'Server=tjmt.docker.dotnet.samples.data,1433;Database=Banco;User Id=sa;Password=P@ssw0rd;'
 
   tjmt.docker.dotnet.samples.data:
-    image: tjmt.docker.dotnet.samples.data
-    build:
-      context: ./database
-      dockerfile: Dockerfile
+    image: tjmt/docker.dotnet.samples.data:latest
     ports:
       - 1433:1433    
     environment:
