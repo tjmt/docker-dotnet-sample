@@ -1,0 +1,13 @@
+# docker-compose -f docker-compose.build.yml build
+# docker-compose -f docker-compose.build.yml push
+# docker-compose -f docker-compose.build.yml down --rmi all -v --remove-orphans
+version: '3.5'
+
+services:
+  tjmt.docker.dotnet.samples:
+    image: ${REGISTRY}tjmt.docker.dotnet.samples:${PROJECT_VERSION}
+    build: 
+      context: .
+      dockerfile: Dockerfile      
+      args:
+        CONFIGURATION: "Release"
