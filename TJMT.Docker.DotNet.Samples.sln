@@ -15,6 +15,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TJMT.Docker.DotNet.Samples.
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{80004A3B-B617-4786-B43A-6988C63D6ABF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TJMT.Docker.DotNet.Samples.Data", "src\TJMT.Docker.DotNet.Samples.Data\TJMT.Docker.DotNet.Samples.Data.csproj", "{2208EF5B-0264-4BB4-99F5-359A71C2F083}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{14EBA65D-248B-47FC-B405-7EFFD040BFFE}"
+	ProjectSection(SolutionItems) = preProject
+		database\Dockerfile = database\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{593B5BF6-CC7A-4F61-9BFF-F56B3B6CF030}"
+	ProjectSection(SolutionItems) = preProject
+		database\sql\V1__Create_Tabela_table.sql = database\sql\V1__Create_Tabela_table.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +49,10 @@ Global
 		{80004A3B-B617-4786-B43A-6988C63D6ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80004A3B-B617-4786-B43A-6988C63D6ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80004A3B-B617-4786-B43A-6988C63D6ABF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2208EF5B-0264-4BB4-99F5-359A71C2F083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2208EF5B-0264-4BB4-99F5-359A71C2F083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2208EF5B-0264-4BB4-99F5-359A71C2F083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2208EF5B-0264-4BB4-99F5-359A71C2F083}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +61,8 @@ Global
 		{E68FCDEF-248D-424D-8ADD-C1498934FB71} = {38EAD43F-5537-4B93-8318-48AF2A22837F}
 		{5F6CB210-6284-4EFA-875B-AE99EEAC1841} = {8319F9B8-BFFC-4925-AA43-92215F47FDC5}
 		{B308C2CB-43E5-460A-8AF7-C722DDC3C3D3} = {38EAD43F-5537-4B93-8318-48AF2A22837F}
+		{2208EF5B-0264-4BB4-99F5-359A71C2F083} = {38EAD43F-5537-4B93-8318-48AF2A22837F}
+		{593B5BF6-CC7A-4F61-9BFF-F56B3B6CF030} = {14EBA65D-248B-47FC-B405-7EFFD040BFFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59E630C1-A85F-43C1-83DC-03138FC6AD02}

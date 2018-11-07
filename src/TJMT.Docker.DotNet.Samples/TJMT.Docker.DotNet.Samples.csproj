@@ -12,10 +12,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TJMT.Docker.DotNet.Samples.Core\TJMT.Docker.DotNet.Samples.Core.csproj" />
+    <ProjectReference Include="..\TJMT.Docker.DotNet.Samples.Data\TJMT.Docker.DotNet.Samples.Data.csproj" />
   </ItemGroup>
 
 </Project>
