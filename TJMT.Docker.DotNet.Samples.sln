@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{593B5BF6-CC7
 		database\sql\V1__Create_Tabela_table.sql = database\sql\V1__Create_Tabela_table.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TJMT.Docker.DotNet.Samples.Test", "test\TJMT.Docker.DotNet.Samples.Test\TJMT.Docker.DotNet.Samples.Test.csproj", "{D51FD049-73A1-40D1-B5F2-E6DB796680FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{2208EF5B-0264-4BB4-99F5-359A71C2F083}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2208EF5B-0264-4BB4-99F5-359A71C2F083}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2208EF5B-0264-4BB4-99F5-359A71C2F083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D51FD049-73A1-40D1-B5F2-E6DB796680FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51FD049-73A1-40D1-B5F2-E6DB796680FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51FD049-73A1-40D1-B5F2-E6DB796680FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51FD049-73A1-40D1-B5F2-E6DB796680FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +62,7 @@ Global
 		{B308C2CB-43E5-460A-8AF7-C722DDC3C3D3} = {38EAD43F-5537-4B93-8318-48AF2A22837F}
 		{2208EF5B-0264-4BB4-99F5-359A71C2F083} = {38EAD43F-5537-4B93-8318-48AF2A22837F}
 		{593B5BF6-CC7A-4F61-9BFF-F56B3B6CF030} = {14EBA65D-248B-47FC-B405-7EFFD040BFFE}
+		{D51FD049-73A1-40D1-B5F2-E6DB796680FD} = {8319F9B8-BFFC-4925-AA43-92215F47FDC5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59E630C1-A85F-43C1-83DC-03138FC6AD02}
