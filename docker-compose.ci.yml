@@ -18,6 +18,9 @@ services:
       context: .
       dockerfile: Dockerfile
       target: build
+      args:
+        CONFIGURATION: "Release"
+        SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"      
     entrypoint: ["/entrypoint-ci/wait-for-it.sh", "tjmt.docker.dotnet.samples.data:1433", "--", "/entrypoint-ci/continuous-integration.sh"]
     environment:
       SGDB: 'SQLSERVER'
