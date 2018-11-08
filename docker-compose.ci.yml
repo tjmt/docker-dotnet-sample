@@ -26,6 +26,8 @@ services:
       HOST: ${HOST}  
       PROJECT_NAME: tjmt.docker.dotnet.samples
       PROJECT_VERSION: ${PROJECT_VERSION}
+    depends_on: 
+      - tjmt.docker.dotnet.samples.data      
     volumes:
       - test-result:/TestResults
 
