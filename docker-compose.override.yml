@@ -1,18 +1,15 @@
+# docker-compose -f docker-compose.yml -f docker-compose.override.yml up --force-recreate --build -d
+# docker-compose -f docker-compose.yml -f docker-compose.override.yml down --rmi all -v --remove-orphans
+
 version: '3.5'
 
 services:
   tjmt.docker.dotnet.samples:
+    build: 
+      args:
+        CONFIGURATION: "Debug"
     ports:
       - 5555:80
     environment:
       ASPNETCORE_ENVIRONMENT: 'Development'
       CONNECTION_STRING: 'Server=tjmt.docker.dotnet.samples.data,1433;Database=Banco;User Id=sa;Password=P@ssw0rd;'
-
-  tjmt.docker.dotnet.samples.data:
-    image: tjmt/docker.dotnet.samples.data:latest
-    ports:
-      - 1433:1433    
-    environment:
-      ACCEPT_EULA: 'Y'
-      SA_PASSWORD: P@ssw0rd
-      DATABASE: Banco 
