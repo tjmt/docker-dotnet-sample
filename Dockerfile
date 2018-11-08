@@ -4,7 +4,7 @@ FROM tjmt/dotnetcore:builder as build
 
 #Estágio do publish
 FROM build as publish
-RUN dotnet publish src/TJMT.Docker.DotNet.Samples/TJMT.Docker.DotNet.Samples.csproj -c ${CONFIGURATION} -o /app                  
+#RUN dotnet publish src/TJMT.Docker.DotNet.Samples/TJMT.Docker.DotNet.Samples.csproj -c ${CONFIGURATION} -o /app                  
 
 
 #Estágio final

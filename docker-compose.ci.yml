@@ -1,0 +1,38 @@
+# docker-compose -f docker-compose.ci.yml up --force-recreate --build --abort-on-container-exit
+# docker-compose -f docker-compose.ci.yml down --rmi all -v --remove-orphans
+version: '3.5'
+
+services:
+  tjmt.docker.dotnet.samples.data:
+    image: tjmt/docker.dotnet.samples.data:latest
+    ports:
+      - 1433:1433    
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: P@ssw0rd
+      DATABASE: Banco 
+
+  tjmt.docker.dotnet.samples:
+    image: tjmt.docker.dotnet.samples
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build
+    entrypoint: ["/entrypoint-ci/wait-for-it.sh", "tjmt.docker.dotnet.samples.data:1433", "--", "/entrypoint-ci/continuous-integration.sh"]
+    environment:
+      SGDB: 'SQLSERVER'
+      CONNECTION_STRING: 'Server=tjmt.docker.dotnet.samples.data,1433;Database=Banco;User Id=sa;Password=P@ssw0rd;'
+      ASPNETCORE_ENVIRONMENT: 'Development'
+      HOST: ${HOST}  
+      PROJECT_NAME: tjmt.docker.dotnet.samples
+      PROJECT_VERSION: ${PROJECT_VERSION}
+    volumes:
+      - test-result:/TestResults
+
+volumes:
+  test-result:
+    name: ${DOCKER_VOLUME_NAME}
+
+networks:
+  default:
+    name: ns-tjmt-docker-dotnet-samples-ci
