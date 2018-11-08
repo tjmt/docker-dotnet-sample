@@ -1,4 +1,10 @@
+# dotnet test test/TJMT.Docker.DotNet.Samples.Test --no-build -c Release -r "/TestResults/result/" -l "trx;LogFileName=TJMT.Docker.DotNet.Samples.Test.trx"
+# coverlet test/TJMT.Docker.DotNet.Samples.Test/bin/Release/netcoreapp2.1/TJMT.Docker.DotNet.Samples.Test.dll --target "dotnet" --targetargs "test test/TJMT.Docker.DotNet.Samples.Test --no-build -c Release" --format opencover --format cobertura --output "/TestResults/codecoverage/TJMT.Docker.DotNet.Samples.Test/"
+
 # docker-compose -f docker-compose.ci.yml up --force-recreate --build --abort-on-container-exit
+# docker create --name xpto -v docker.dotnet.samples-test-results:/TestResults busybox
+# docker cp xpto:./TestResults D:\TestResults
+# docker rm xpto
 # docker-compose -f docker-compose.ci.yml down --rmi all -v --remove-orphans
 version: '3.5'
 
@@ -26,9 +32,9 @@ services:
       SGDB: 'SQLSERVER'
       CONNECTION_STRING: 'Server=tjmt.docker.dotnet.samples.data,1433;Database=Banco;User Id=sa;Password=P@ssw0rd;'
       ASPNETCORE_ENVIRONMENT: 'Development'
-      HOST: ${HOST}  
+      HOST: "http://localhost"  
       PROJECT_NAME: tjmt.docker.dotnet.samples
-      PROJECT_VERSION: ${PROJECT_VERSION}
+      PROJECT_VERSION: "20181108.4"
     depends_on: 
       - tjmt.docker.dotnet.samples.data      
     volumes:
@@ -36,7 +42,7 @@ services:
 
 volumes:
   test-result:
-    name: ${DOCKER_VOLUME_NAME}
+    name: "docker.dotnet.samples-test-results"
 
 networks:
   default:
