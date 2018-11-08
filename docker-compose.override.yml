@@ -4,6 +4,15 @@
 version: '3.5'
 
 services:
+  tjmt.docker.dotnet.samples.data:
+    image: tjmt/docker.dotnet.samples.data:latest
+    ports:
+      - 1433:1433    
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: P@ssw0rd
+      DATABASE: Banco
+
   tjmt.docker.dotnet.samples:
     build: 
       args:
@@ -13,3 +22,5 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: 'Development'
       CONNECTION_STRING: 'Server=tjmt.docker.dotnet.samples.data,1433;Database=Banco;User Id=sa;Password=P@ssw0rd;'
+    depends_on: 
+      - tjmt.docker.dotnet.samples.data
