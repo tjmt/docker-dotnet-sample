@@ -1,6 +1,4 @@
-# dotnet test test/TJMT.Docker.DotNet.Samples.Test --no-build -c Release -r "/TestResults/result/" -l "trx;LogFileName=TJMT.Docker.DotNet.Samples.Test.trx"
-# coverlet test/TJMT.Docker.DotNet.Samples.Test/bin/Release/netcoreapp2.1/TJMT.Docker.DotNet.Samples.Test.dll --target "dotnet" --targetargs "test test/TJMT.Docker.DotNet.Samples.Test --no-build -c Release" --format opencover --format cobertura --output "/TestResults/codecoverage/TJMT.Docker.DotNet.Samples.Test/"
-
+#---------COMANDOS PARA RODAR A CI LOCALMENTE, E EXTRAIR O RESULTADO DOS TESTES---------
 # docker-compose -f docker-compose.ci.yml up --force-recreate --build --abort-on-container-exit
 # docker create --name xpto -v docker.dotnet.samples-test-results:/TestResults busybox
 # docker cp xpto:./TestResults D:\TestResults
@@ -32,13 +30,13 @@ services:
       SGDB: 'SQLSERVER'
       CONNECTION_STRING: 'Server=tjmt.docker.dotnet.samples.data,1433;Database=Banco;User Id=sa;Password=P@ssw0rd;'
       ASPNETCORE_ENVIRONMENT: 'Development'
-      HOST: "http://localhost"  
       PROJECT_NAME: tjmt.docker.dotnet.samples
-      PROJECT_VERSION: "20181108.4"
-      SONAR_LOGIN: "token"
-      SONAR_HOST_URL: "url"
-      COVERAGE_PATH: "/TestResults/1/codecoverage"
-      RESULT_PATH: "/TestResults/1/result"
+      PROJECT_VERSION: "20181108.4" #Informar pela automação $(Build.BuildNumber)
+      HOST: "http://localhost"  #Informar pela automação $(HOST)
+      SONAR_LOGIN: "token" #Informar pela automação $(SONAR_LOGIN), opcional, informar quando deseja que o CI analise o código pelo sonarQube
+      SONAR_HOST_URL: "url" #Informar pela automação $(SONAR_HOST_URL), opcional, informar quando deseja que o CI analise o código pelo sonarQube
+      COVERAGE_PATH: "/TestResults/codecoverage" #OPCIONAL
+      RESULT_PATH: "/TestResults/result" #OPCIONAL
     depends_on: 
       - tjmt.docker.dotnet.samples.data      
     volumes:
@@ -46,7 +44,7 @@ services:
 
 volumes:
   test-result:
-    name: "docker.dotnet.samples-test-results"
+    name: "docker.dotnet.samples-test-results" #Informar pela automação $(DOCKER_VOLUME_NAME)
 
 networks:
   default:
