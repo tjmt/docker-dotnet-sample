@@ -12,6 +12,4 @@ services:
       args:
         CONFIGURATION: "Release"
         SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"
-        PATH_SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"
-        PATH_PROJECT_1: "src/TJMT.Docker.DotNet.Samples/TJMT.Docker.DotNet.Samples.csproj"
-        PATH_PROJECT_2: "src/TJMT.Docker.DotNet.Samples.Core/TJMT.Docker.DotNet.Samples.Core.csproj"
+        PATHS: "TJMT.Docker.DotNet.Samples.sln;src/TJMT.Docker.DotNet.Samples/TJMT.Docker.DotNet.Samples.csproj;src/TJMT.Docker.DotNet.Samples.Core/TJMT.Docker.DotNet.Samples.Core.csproj"
