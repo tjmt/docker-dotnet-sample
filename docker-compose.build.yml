@@ -11,5 +11,4 @@ services:
       dockerfile: Dockerfile      
       args:
         CONFIGURATION: "Release"
-        SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"
-        PATHS: "TJMT.Docker.DotNet.Samples.sln;src/TJMT.Docker.DotNet.Samples/TJMT.Docker.DotNet.Samples.csproj;src/TJMT.Docker.DotNet.Samples.Core/TJMT.Docker.DotNet.Samples.Core.csproj"
+        SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"        

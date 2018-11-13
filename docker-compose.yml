@@ -1,10 +1,10 @@
-version: '3.5'
+version: '3.4'
 
 services:
   tjmt.docker.dotnet.samples:
     image: tjmt.docker.dotnet.samples:local
     build: 
       context: .
-      dockerfile: Dockerfile      
+      dockerfile: src/TJMT.Docker.DotNet.Samples/Dockerfile      
       args:
         SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"

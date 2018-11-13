@@ -9,6 +9,8 @@
     <DockerServiceName>tjmt.docker.dotnet.samples</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="docker-compose.build.yml" />
+    <None Include="docker-compose.ci.yml" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
