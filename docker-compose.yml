@@ -2,9 +2,10 @@ version: '3.4'
 
 services:
   tjmt.docker.dotnet.samples:
-    image: tjmt.docker.dotnet.samples:local
+    image: docker.dotnet.samples:local
     build: 
       context: .
-      dockerfile: src/TJMT.Docker.DotNet.Samples/Dockerfile      
+      dockerfile: src/TJMT.Docker.DotNet.Samples/Dockerfile
       args:
+        CONFIGURATION: "Debug"
         SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"

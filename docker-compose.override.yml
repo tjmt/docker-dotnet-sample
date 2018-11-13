@@ -14,9 +14,6 @@ services:
       DATABASE: Banco
 
   tjmt.docker.dotnet.samples:
-    build: 
-      args:
-        CONFIGURATION: "Debug"
     ports:
       - 5555:80      
     environment:

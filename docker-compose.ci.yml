@@ -4,8 +4,8 @@
 # docker cp xpto:./TestResults D:\TestResults
 # docker rm xpto
 # docker-compose -f docker-compose.ci.yml down --rmi all -v --remove-orphans
-version: '3.5'
 
+version: '3.5'
 services:
   tjmt.docker.dotnet.samples.data:
     image: tjmt/docker.dotnet.samples.data:latest
@@ -17,13 +17,13 @@ services:
       DATABASE: Banco 
 
   tjmt.docker.dotnet.samples:
-    image: tjmt.docker.dotnet.samples
+    image: docker.dotnet.samples:ci
     build:
       context: .
-      dockerfile: Dockerfile
-      target: build
+      dockerfile: src/TJMT.Docker.DotNet.Samples/Dockerfile
+      target: build      
       args:
-        CONFIGURATION: "Release"
+        CONFIGURATION: "Debug"
         SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"
     entrypoint: ["/entrypoint-ci/wait-for-it.sh", "tjmt.docker.dotnet.samples.data:1433", "--", "/entrypoint-ci/continuous-integration.sh"]
     environment:

@@ -5,10 +5,10 @@ version: '3.5'
 
 services:
   tjmt.docker.dotnet.samples:
-    image: tjmt/docker.dotnet.samples
-    build: 
+    image: ${DOCKER_REGISTRY}docker.dotnet.samples${TAG}
+    build:
       context: .
-      dockerfile: Dockerfile      
+      dockerfile: src/TJMT.Docker.DotNet.Samples/Dockerfile      
       args:
         CONFIGURATION: "Release"
-        SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"        
+        SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"
