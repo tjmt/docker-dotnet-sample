@@ -1,13 +1,13 @@
-#Estágio de build.
+#build stage
 FROM tjmt/dotnetcore:builder as build
 
 
-#Estágio do publish
+#publish stage
 FROM build as publish
-RUN dotnet publish src/TJMT.Docker.DotNet.Samples/TJMT.Docker.DotNet.Samples.csproj -c ${CONFIGURATION} -o /app                  
+RUN dotnet publish src/TJMT.Docker.DotNet.Samples/TJMT.Docker.DotNet.Samples.csproj -c ${CONFIGURATION} -o /app
 
 
-#Estágio final
+#final stage
 FROM tjmt/dotnetcore:runtime as final
 COPY --from=publish /app /app
 WORKDIR /app

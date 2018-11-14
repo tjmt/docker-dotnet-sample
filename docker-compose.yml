@@ -2,7 +2,6 @@ version: '3.4'
 
 services:
   tjmt.docker.dotnet.samples:
-    image: docker.dotnet.samples:local
     build: 
       context: .
       dockerfile: src/TJMT.Docker.DotNet.Samples/Dockerfile

@@ -8,7 +8,7 @@ services:
     image: ${DOCKER_REGISTRY}docker.dotnet.samples${TAG}
     build:
       context: .
-      dockerfile: src/TJMT.Docker.DotNet.Samples/Dockerfile      
+      dockerfile: src/TJMT.Docker.DotNet.Samples/Dockerfile  
       args:
         CONFIGURATION: "Release"
         SOLUTION_NAME: "TJMT.Docker.DotNet.Samples.sln"
