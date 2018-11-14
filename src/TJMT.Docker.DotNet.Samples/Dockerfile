@@ -1,6 +1,7 @@
 #build stage
 FROM tjmt/dotnetcore:builder as build
 
+ENTRYPOINT dotnet src/TJMT.Docker.DotNet.Samples/bin/${CONFIGURATION}/netcoreapp2.1/TJMT.Docker.DotNet.Samples.dll
 
 #publish stage
 FROM build as publish

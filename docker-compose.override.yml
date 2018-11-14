@@ -5,6 +5,7 @@
 # https://www.richard-banks.org/2018/07/debugging-core-in-docker.html
 # https://github.com/sleemer/docker.dotnet.debug
 # http://blog.avenuecode.com/debugging-remote-containerized-apps-with-vs-code
+# https://techblog.dorogin.com/running-and-debugging-net-core-unit-tests-inside-docker-containers-48476eda2d2a
 
 version: '3.4'
 
@@ -12,17 +13,19 @@ services:
   tjmt.docker.dotnet.samples.data:
     image: tjmt/docker.dotnet.samples.data:latest
     ports:
-      - 1433:1433    
+      - 1433:1433
     environment:
       ACCEPT_EULA: 'Y'
       SA_PASSWORD: P@ssw0rd
       DATABASE: Banco
 
   tjmt.docker.dotnet.samples:
+    build:
+      target: build
     ports:
-      - 5555:80      
+      - 5555:80
     environment:
       ASPNETCORE_ENVIRONMENT: 'Development'
       CONNECTION_STRING: 'Server=tjmt.docker.dotnet.samples.data,1433;Database=Banco;User Id=sa;Password=P@ssw0rd;'
-    depends_on: 
+    depends_on:
       - tjmt.docker.dotnet.samples.data
